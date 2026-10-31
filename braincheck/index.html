@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BrainCheck</title>
+</head>
+<body>
+
+  <h1>BrainCheck</h1>
+
+  <div id="setupForm">
+    <form id="quizForm">
+      <label>Select Exam Type:</label><br>
+      <select id="examType" required>
+        <option value="" disabled selected>Select</option>
+        <option value="Multiple Choice">Multiple Choice</option>
+        <option value="Identification">Identification</option>
+        <option value="True or False">True or False</option>
+        <option value="Random Mix">Random Mix</option>
+      </select>
+      <br><br>
+
+      <label>Number of Items (Max 100):</label><br>
+      <input type="number" id="itemCount" min="1" max="100" required>
+      <br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div id="loadingText" style="display: none;">
+    <p>Loading...</p>
+  </div>
+
+  <div id="resultBox" style="display: none;">
+    <hr>
+    <h3>Setup Successful!</h3>
+    <p>Exam Type: <span id="displayType"></span></p>
+    <p>Total Items: <span id="displayItems"></span></p>
+    
+    <p>Are you ready?</p>
+    <button type="button" id="startBtn">Start Exam</button>
+    <button type="button" id="changeBtn">Change Setup</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -10,38 +10,43 @@
 
 <body style="background-color: lightgray;">
 
-  <div class="container py-4 text-center">
+  <div class="container py-5 text-center">
     
-    <h1 class="mb-4">BrainCheck</h1>
+    <h1 class="mb-4 fw-bold">BrainCheck</h1>
 
     <div class="row justify-content-center">
-      <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-4" style="max-width: 420px;">
         
-        <div id="setupForm" class="card p-4 shadow-sm mb-3">
+        <div id="setupForm" class="card p-4 shadow-sm mb-3 text-start">
           <form id="quizForm">
-            <label for="examType" class="form-label">Select Exam Type:</label>
-            <select id="examType" class="form-select mb-3" required>
-              <option value="" disabled selected>Select</option>
-              <option value="Multiple Choice">Multiple Choice</option>
-              <option value="Identification">Identification</option>
-              <option value="True or False">True or False</option>
-              <option value="Random Mix">Random Mix</option>
-            </select>
+            
+            <div class="mb-3">
+              <label for="examType" class="form-label fw-bold">Select Exam Type:</label>
+              <select id="examType" class="form-select" required>
+                <option value="" disabled selected>Select</option>
+                <option value="Multiple Choice">Multiple Choice</option>
+                <option value="Identification">Identification</option>
+                <option value="True or False">True or False</option>
+                <option value="Random Mix">Random</option>
+              </select>
+            </div>
 
-            <label for="itemCount" class="form-label">Number of Items (Max 100):</label>
-            <input type="number" id="itemCount" class="form-control mb-3" min="1" max="100" required>
+            <div class="mb-3">
+              <label for="itemCount" class="form-label fw-bold">Number of Items (Max 100):</label>
+              <input type="number" id="itemCount" class="form-control" min="1" max="100" required>
+            </div>
 
-            <button type="submit" class="btn btn-primary w-100">Submit</button>
+            <button type="submit" class="btn btn-primary w-100 mt-2">Submit</button>
           </form>
         </div>
 
-        <div id="loadingText" style="display: none;" class="card p-4 shadow-sm mb-3">
+        <div id="loadingText" style="display: none;" class="card p-4 shadow-sm mb-3 text-center">
           <div class="spinner-border text-primary mx-auto mb-2" role="status"></div>
           <p class="mb-0">Loading...</p>
         </div>
 
-        <div id="resultBox" style="display: none;" class="card p-4 shadow-sm">
-          <h3>Setup Successful!</h3>
+        <div id="resultBox" style="display: none;" class="card p-4 shadow-sm text-center">
+          <h3 class="mb-3">Setup Successful!</h3>
           <p class="mb-1">Exam Type: <span id="displayType"></span></p>
           <p class="mb-3">Total Items: <span id="displayItems"></span></p>
 

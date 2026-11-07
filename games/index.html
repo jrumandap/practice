@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Roulette</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" onclick="showScreen('homeScreen'); return false;">
+                <i class="bi bi-disc-fill me-2"></i>QUESTION ROULETTE
+            </a>
+
+            <button class="btn sound-button" id="soundToggle" aria-label="Toggle sound">
+                <i class="bi bi-volume-up-fill"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <section id="homeScreen" class="screen active">
+            <div class="home-content text-center">
+
+                <div class="game-icon">
+                    <i class="bi bi-chat-heart-fill"></i>
+                </div>
+
+                <span class="game-label">2 PLAYER GAME</span>
+
+                <h1>GET TO KNOW<br><span>EACH OTHER</span></h1>
+
+                <p class="home-description">
+                    Spin the wheel, pick a player, and discover something new about each other.
+                </p>
+
+                <button class="btn primary-button" id="playButton">
+                    START GAME <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+
+                <div class="home-features">
+                    <div>
+                        <i class="bi bi-people-fill"></i>
+                        <span>2 Players</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-arrow-repeat"></i>
+                        <span>Random Questions</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-chat-dots-fill"></i>
+                        <span>Fun Conversations</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="setupScreen" class="screen">
+
+            <div class="section-heading">
+                <button class="btn back-button" onclick="showScreen('homeScreen')">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+
+                <div>
+                    <span class="game-label">GET STARTED</span>
+                    <h2>Who's Playing?</h2>
+                    <p>Enter the names of both players.</p>
+                </div>
+            </div>
+
+            <div class="setup-card">
+
+                <div class="player-input">
+                    <div class="player-number">01</div>
+                    <label for="playerOne">PLAYER ONE</label>
+                    <input type="text" id="playerOne" class="form-control" placeholder="Enter first player's name" maxlength="20">
+                </div>
+
+                <div class="player-input">
+                    <div class="player-number second">02</div>
+                    <label for="playerTwo">PLAYER TWO</label>
+                    <input type="text" id="playerTwo" class="form-control" placeholder="Enter second player's name" maxlength="20">
+                </div>
+
+                <p id="setupError" class="error-message"></p>
+
+                <button class="btn primary-button w-100" id="startGameButton">
+                    LET'S PLAY <i class="bi bi-play-fill ms-2"></i>
+                </button>
+
+            </div>
+        </section>
+
+        <section id="gameScreen" class="screen">
+
+            <div class="game-header">
+                <div>
+                    <span class="game-label">GAME ARENA</span>
+                    <h2>Question Roulette</h2>
+                </div>
+
+                <div class="round-badge" id="roundLabel">ROUND 1</div>
+            </div>
+
+            <div class="roulette-card text-center">
+
+                <div class="roulette-title">SPIN THE WHEEL</div>
+
+                <div class="wheel-container">
+
+                    <div class="wheel-pointer">
+                        <i class="bi bi-caret-down-fill"></i>
+                    </div>
+
+                    <div class="question-wheel" id="questionWheel">
+                        <div class="wheel-center">
+                            <i class="bi bi-question-lg"></i>
+                        </div>
+
+                        <span class="wheel-text" id="wheelText">READY?</span>
+                    </div>
+
+                </div>
+
+                <p id="questionHint">Spin to get a random question.</p>
+
+                <button class="btn primary-button" id="spinQuestionButton">
+                    <i class="bi bi-arrow-repeat me-2"></i>SPIN QUESTION
+                </button>
+
+            </div>
+
+            <div class="player-selection">
+
+                <div class="player-selection-heading">
+                    <span class="game-label">NEXT STEP</span>
+                    <h3>Who's Going to Answer?</h3>
+                </div>
+
+                <div class="players-display">
+
+                    <div class="player-box" id="playerOneBox">
+                        <div class="player-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <span id="playerOneDisplay"></span>
+                    </div>
+
+                    <div class="versus">VS</div>
+
+                    <div class="player-box" id="playerTwoBox">
+                        <div class="player-avatar second-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+
+                        <span id="playerTwoDisplay"></span>
+                    </div>
+
+                </div>
+
+                <div class="selected-player" id="selectedPlayer">
+                    <i class="bi bi-stars me-2"></i>Waiting for selection
+                </div>
+
+                <button class="btn secondary-button w-100" id="spinPlayerButton" disabled>
+                    <i class="bi bi-shuffle me-2"></i>PICK A PLAYER
+                </button>
+
+            </div>
+
+            <button class="btn end-button" id="endGameButton">
+                <i class="bi bi-box-arrow-left me-2"></i>End Game
+            </button>
+
+        </section>
+
+        <section id="questionsScreen" class="screen">
+
+            <div class="section-heading">
+                <button class="btn back-button" onclick="showScreen('homeScreen')">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+
+                <div>
+                    <span class="game-label">CUSTOMIZE</span>
+                    <h2>Manage Questions</h2>
+                    <p>Built-in questions are already included. Add more if you want.</p>
+                </div>
+            </div>
+
+            <div class="manager-card">
+
+                <div class="manager-heading">
+                    <div>
+                        <h3>Add Your Own Question</h3>
+                        <p>Make the game more personal with your own questions.</p>
+                    </div>
+
+                    <div class="manager-icon">
+                        <i class="bi bi-plus-lg"></i>
+                    </div>
+                </div>
+
+                <label for="newQuestion">YOUR QUESTION</label>
+
+                <textarea
+                    id="newQuestion"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Type your question here..."
+                ></textarea>
+
+                <p id="questionError" class="error-message"></p>
+
+                <button class="btn primary-button w-100" id="addQuestionButton">
+                    <i class="bi bi-plus-lg me-2"></i>ADD QUESTION
+                </button>
+
+            </div>
+
+            <div class="list-heading">
+                <div>
+                    <h3>Question List</h3>
+                    <p>Built-in and custom questions</p>
+                </div>
+
+                <span id="questionCount">0 Questions</span>
+            </div>
+
+            <div id="questionList" class="question-list"></div>
+
+        </section>
+
+        <section id="historyScreen" class="screen">
+
+            <div class="section-heading">
+                <button class="btn back-button" onclick="showScreen('homeScreen')">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+
+                <div>
+                    <span class="game-label">GAME RECORDS</span>
+                    <h2>Game History</h2>
+                    <p>Review your previous rounds.</p>
+                </div>
+            </div>
+
+            <div class="history-summary">
+                <i class="bi bi-clock-history"></i>
+
+                <div>
+                    <span id="historyCount">0</span>
+                    <p>Recorded Rounds</p>
+                </div>
+            </div>
+
+            <div id="historyList" class="history-list"></div>
+
+            <button class="btn clear-button w-100 mt-3" id="clearHistoryButton">
+                <i class="bi bi-trash me-2"></i>Clear History
+            </button>
+
+        </section>
+
+        <section class="bottom-navigation">
+
+            <button onclick="showScreen('homeScreen')">
+                <i class="bi bi-house-fill"></i>
+                <span>Home</span>
+            </button>
+
+            <button onclick="showScreen('questionsScreen')">
+                <i class="bi bi-card-list"></i>
+                <span>Questions</span>
+            </button>
+
+            <button onclick="showScreen('historyScreen')">
+                <i class="bi bi-clock-history"></i>
+                <span>History</span>
+            </button>
+
+        </section>
+
+    </main>
+
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content result-modal">
+
+                <div class="modal-body text-center">
+
+                    <div class="result-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <span class="game-label">IT'S YOUR TURN!</span>
+
+                    <h2 id="resultModalLabel">Player will answer!</h2>
+
+                    <div class="modal-question-card">
+                        <span>YOUR QUESTION</span>
+                        <p id="modalQuestion"></p>
+                    </div>
+
+                    <button class="btn primary-button w-100" id="modalNextButton">
+                        NEXT ROUND <i class="bi bi-arrow-right ms-2"></i>
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

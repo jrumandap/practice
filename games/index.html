@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <nav class="navbar navbar-dark">
@@ -84,13 +85,15 @@
                 <div class="player-input">
                     <div class="player-number">01</div>
                     <label for="playerOne">PLAYER ONE</label>
-                    <input type="text" id="playerOne" class="form-control" placeholder="Enter first player's name" maxlength="20">
+                    <input type="text" id="playerOne" class="form-control" placeholder="Enter first player's name"
+                        maxlength="20">
                 </div>
 
                 <div class="player-input">
                     <div class="player-number second">02</div>
                     <label for="playerTwo">PLAYER TWO</label>
-                    <input type="text" id="playerTwo" class="form-control" placeholder="Enter second player's name" maxlength="20">
+                    <input type="text" id="playerTwo" class="form-control" placeholder="Enter second player's name"
+                        maxlength="20">
                 </div>
 
                 <p id="setupError" class="error-message"></p>
@@ -215,12 +218,8 @@
 
                 <label for="newQuestion">YOUR QUESTION</label>
 
-                <textarea
-                    id="newQuestion"
-                    class="form-control"
-                    rows="3"
-                    placeholder="Type your question here..."
-                ></textarea>
+                <textarea id="newQuestion" class="form-control" rows="3"
+                    placeholder="Type your question here..."></textarea>
 
                 <p id="questionError" class="error-message"></p>
 
@@ -295,7 +294,8 @@
 
     </main>
 
-    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+        data-bs-keyboard="false">
         <div class="modal-dialog modal-dialog-centered">
 
             <div class="modal-content result-modal">
@@ -329,4 +329,5 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>

@@ -1,0 +1,65 @@
+body {
+  font-family: 'Geist', sans-serif;
+  background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.font-mono {
+  font-family: 'Geist Mono', monospace;
+}
+
+.brand-title {
+  background: linear-gradient(45deg, #0d6efd, #0dcaf0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.custom-card {
+  border: none;
+  border-radius: 1.25rem;
+  background: #ffffff;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(10px);
+}
+
+.form-control, .form-select {
+  font-family: 'Geist', sans-serif;
+  border-radius: 0.75rem;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid #dee2e6;
+  transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+.btn-custom {
+  font-family: 'Geist', sans-serif;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:active {
+  transform: translateY(0);
+}
+
+.info-badge {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+}

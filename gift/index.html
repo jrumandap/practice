@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="floatingEmojis"></div>
+
+    <section id="passwordScreen" class="screen active">
+        <div class="welcome-card">
+            <div class="main-icon">🎀</div>
+            <h1>A Little Surprise</h1>
+            <p>Someone prepared something special for you.</p>
+
+            <input type="password" id="passwordInput" class="form-control" placeholder="Enter the password">
+
+            <p id="passwordMessage"></p>
+
+            <button class="btn pink-btn w-100" onclick="checkPassword()">
+                Open Surprise <i class="bi bi-heart-fill"></i>
+            </button>
+        </div>
+    </section>
+
+    <section id="loadingScreen" class="screen">
+        <div class="loading-content">
+            <div class="loading-heart">💗</div>
+            <h2>Preparing your surprise...</h2>
+            <div class="progress loading-progress">
+                <div class="progress-bar" id="loadingBar"></div>
+            </div>
+            <p>Please wait a little moment.</p>
+        </div>
+    </section>
+
+    <section id="questionScreen" class="screen">
+        <div class="welcome-card question-card">
+            <div class="main-icon">💐</div>
+            <h1>One Little Question</h1>
+            <p class="question-text">Can I be your girlfriend?</p>
+
+            <div class="question-buttons">
+                <button class="btn pink-btn" onclick="sayYes()">YES 💗</button>
+                <button class="btn no-btn" id="noButton" onclick="shrinkNo()">NO 🙈</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="jokeScreen" class="screen">
+        <div class="joke-content">
+            <h1>IT'S A JOKE!</h1>
+            <p>HAHAHAHA! EME! 😂</p>
+            <div class="joke-emoji">🤣🤣🤣</div>
+            <p>Wait for your real surprise...</p>
+            <h2 id="countdown">10</h2>
+        </div>
+    </section>
+
+    <section id="birthdayScreen" class="screen">
+        <div class="birthday-container">
+
+            <div class="scattered-gallery">
+
+                <div class="center-birthday-text">
+                    <p class="small-heading">A SPECIAL DAY FOR SOMEONE SPECIAL</p>
+                    <h1>Happy Birthday, <span>Princess!</span></h1>
+                    <div class="center-flowers">🌷 🌸 🌷</div>
+                    <p>Wishing you a day filled with love, happiness, and beautiful memories.</p>
+                </div>
+
+                <div class="scattered-photo photo-one">
+                    <img src="C:\Users\JayR\Documents\practice\gift\image\photo6.jpg" alt="Birthday memory" onclick="showImage(this.src)">
+                </div>
+
+                <div class="scattered-photo photo-two">
+                    <img src="C:\Users\JayR\Documents\practice\gift\image\photo2.jpg" alt="Birthday memory" onclick="showImage(this.src)">
+                </div>
+
+                <div class="scattered-photo photo-three">
+                    <img src="C:\Users\JayR\Documents\practice\gift\image\photo3.jpg" alt="Birthday memory" onclick="showImage(this.src)">
+                </div>
+
+                <div class="scattered-photo photo-four">
+                    <img src="C:\Users\JayR\Documents\practice\gift\image\photo1.jpg" alt="Birthday memory" onclick="showImage(this.src)">
+                </div>
+
+                <div class="scattered-photo photo-five">
+                    <img src="C:\Users\JayR\Documents\practice\gift\image\photo5.jpg" alt="Birthday memory" onclick="showImage(this.src)">
+                </div>
+
+                <div class="scattered-photo photo-six">
+                    <img src="C:\Users\JayR\Documents\practice\gift\image\photo4.jpg" alt="Birthday memory" onclick="showImage(this.src)">
+                </div>
+
+                <div class="gallery-bottom">
+                    <button class="btn pink-btn" onclick="showMessage()">
+                        I Have a Message <i class="bi bi-envelope-heart-fill"></i>
+                    </button>
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+    </section>
+
+    <section id="messageScreen" class="screen">
+        <div class="message-container">
+
+            <div class="message-card">
+                <div class="message-image">
+                    <img src="C:\Users\JayR\Documents\practice\gift\image\specialphoto.jpg" alt="Special memory" onclick="showImage(this.src)">
+                </div>
+
+                <div class="message-content">
+                    <p class="small-heading">A MESSAGE FOR YOU</p>
+                    <h1>Dear Princess, <span>💗</span></h1>
+
+                    <p>
+                        Happy Birthday, Princess! I hope you know how special you are and how much you deserve to be
+                        happy. May this new chapter of your life bring you endless blessings, beautiful opportunities,
+                        and countless reasons to smile. Never stop believing in yourself, chasing your dreams, and
+                        becoming the person you want to be. Always remember that you are beautiful, strong, and worthy
+                        of all the love and happiness this world has to offer. No matter what life brings, I hope you
+                        never lose that smile of yours. Enjoy your special day, make wonderful memories, and keep
+                        shining in your own little way. You deserve nothing but the best. 💗🌷
+                    </p>
+
+                    <h3>Keep smiling, Princess! 🌸</h3>
+
+                    <button class="btn pink-btn mt-3" onclick="showFinal()">
+                        Thank You <i class="bi bi-heart-fill"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="finalScreen" class="screen">
+        <div class="final-content">
+            <div class="final-flowers">🌷 💐 🌸</div>
+
+            <img src="C:\Users\JayR\Documents\practice\gift\image\stitch.png" alt="Stitch holding flowers" class="stitch-image">
+
+            <h1>Happy Birthday, Princess!</h1>
+            <p>Hope this little surprise made you smile. Have the happiest birthday! 💗</p>
+
+            <button class="btn pink-btn back-main-btn" onclick="backToMainEvent()">
+                <i class="bi bi-arrow-left"></i> Back to Main Event
+            </button>
+        </div>
+    </section>
+
+    <div class="modal fade" id="photoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content photo-modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <img src="" id="modalImage" alt="Preview">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
